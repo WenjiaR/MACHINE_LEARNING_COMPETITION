@@ -1,3 +1,5 @@
-./data/food/
-./data/food1/
+./data/food/test
+./data/food/train
+./data/food/val
+./data/food1
 

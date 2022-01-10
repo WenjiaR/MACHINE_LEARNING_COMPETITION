@@ -1,55 +1,14 @@
-# Food_cls Baseline
+# 需说明的情况
 
-A simple baseline for SIGS_Big_Data_ML_Exam_2021.
+- 注意数据文件中test, eval和train都包含两层相同的文件名，与作业要求的源代码有所不同，例如需要检索到训练集中的一张图片
+，路径为./data/food/train/train/0/1711.jpg, train出现了两次。
 
-https://www.kaggle.com/t/b7ed697207f0401b94a1f5c49c559d68
+- 具体的data文件已被.gitignore。
+- 图片路径索引文件请参见./data/food/test.txt, ./data/food/train.txt,./data/food/val.txt
 
-# Environment
-- python 3.6
-- torch 1.5.1
-- torchvision 0.6.0
-- tqdm
+# 代码效果
+- Kaggle一次提交得分为0.46509
 
-必须用 `GPU` 跑 Q.Q (3 min per epoch on Tesla T4 8GB Memory)
-
-# Download
-
-下载数据到指定路径 `./data/food/`,将三个文件夹分别移动到:
-
-- `./data/food/train`
-- `./data/food/val`
-- `./data/food/test`
-
-# Prepare
-
-生成索引文件，创建数据集：
-
-`python prepare.py --src ./data/food/train --out ./data/food/train.txt`
-
-`python prepare.py --src ./data/food/val  --out ./data/food/val.txt`
-
-修改 `dataset.py` 的 `107-108` 行为你的指定路径
-
-# Hyper-parameter
-
-修改 `config.py` 的超参数为你需要的值
-
-`root`修改为你的项目本地路径
-
-# Train
-
-`CUDA_VISIBLE_DEVICES=0 python train.py`
-
-# Inferance
-
-这部分代码请同学们自己实现
-
-功能为用训练好的模型测试 `./data/food/test` 路径下的所有图片，并生成 `submission.txt` 文件
-
-请注意提交格式
-
-# Tips
-
-1. 这只是个baseline，不要求一定使用这个代码
-2. 遇到问题及时与助教沟通，或者提 `issues`
-3. 请维护好自己的 `git commit` 记录，尽量在每次 `commit` 时都写明自己的具体工作
+# 测试文件编写基本思路
+首先先生成测试集图片路径的索引保存在test.txt中，然后用实现数据集DataSet，利用数据集实现dataloader，
+使用dataloader可实现测试数据集的遍历，对每一张图片进行预测，输出结果。
