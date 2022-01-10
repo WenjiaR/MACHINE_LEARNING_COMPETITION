@@ -1,5 +1,5 @@
-./data/food/test
-./data/food/train
-./data/food/val
+./data/food/test/test
+./data/food/train/train
+./data/food/val/val
 ./data/food1
 
